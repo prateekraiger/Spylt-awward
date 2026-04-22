@@ -54,10 +54,21 @@ const HeroSection = () => {
       },
     });
     heroTl.to(".hero-container", {
-      rotate: 7,
-      scale: 0.9,
-      yPercent: 30,
-      ease: "power1.inOut",
+      rotate: 5,
+      scale: 0.95,
+      yPercent: 20,
+      ease: "power2.inOut",
+    });
+
+    gsap.to(".hero-bg-media", {
+      yPercent: 20,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero-container",
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
     });
   });
 
@@ -82,8 +93,9 @@ const HeroSection = () => {
             src={`${import.meta.env.BASE_URL}videos/hero-bg.mp4`}
             autoPlay
             muted
+            loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+            className="hero-bg-media absolute inset-0 w-full h-[120%] object-cover -top-[10%]"
           />
         )}
         <div className="hero-content opacity-0">

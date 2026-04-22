@@ -54,15 +54,25 @@ const MessageSection = () => {
     const paragraphTl = gsap.timeline({
       scrollTrigger: {
         trigger: ".message-content p",
-        start: "top center",
+        start: "top 80%",
       },
     });
     paragraphTl.from(paragraphSplit.words, {
-      yPercent: 300,
-      rotate: 3,
-      ease: "power1.inOut",
-      duration: 1,
-      stagger: 0.01,
+      yPercent: 100,
+      opacity: 0,
+      rotate: 2,
+      ease: "power3.out",
+      duration: 1.2,
+      stagger: 0.02,
+    });
+
+    gsap.to(".msg-wrapper", {
+      yPercent: -15,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".message-content",
+        scrub: true,
+      },
     });
   });
 
