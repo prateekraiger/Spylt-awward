@@ -75,18 +75,24 @@ const FlavorSlider = () => {
               src={`${import.meta.env.BASE_URL}images/${flavor.color}-bg.svg`}
               alt=""
               className="absolute bottom-0"
+              loading="lazy"
+              decoding="async"
             />
 
             <img
               src={`${import.meta.env.BASE_URL}images/${flavor.color}-drink.webp`}
               alt=""
               className="drinks"
+              loading="lazy"
+              decoding="async"
             />
 
             <img
               src={`${import.meta.env.BASE_URL}images/${flavor.color}-elements.webp`}
               alt=""
               className="elements"
+              loading="lazy"
+              decoding="async"
             />
 
             <h1>{flavor.name}</h1>

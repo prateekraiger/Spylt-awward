@@ -70,9 +70,17 @@ const NutritionSection = () => {
         src={`${import.meta.env.BASE_URL}images/slider-dip.png`}
         alt=""
         className="w-full object-cover"
+        loading="lazy"
+        decoding="async"
       />
 
-      <img src={`${import.meta.env.BASE_URL}images/big-img.png`} alt="" className="big-img" />
+      <img 
+        src={`${import.meta.env.BASE_URL}images/big-img.png`} 
+        alt="" 
+        className="big-img" 
+        loading="lazy"
+        decoding="async"
+      />
 
       <div className="flex md:flex-row flex-col justify-between md:px-10 px-5 mt-14 md:mt-0">
         <div className="relative inline-block md:translate-y-20">

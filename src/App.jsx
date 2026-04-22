@@ -2,13 +2,14 @@ import NavBar from "./components/NavBar";
 import HeroSection from "./sections/HeroSection";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
-import MessageSection from "./sections/MessageSection";
-import FlavorSection from "./sections/FlavorSection";
-import NutritionSection from "./sections/NutritionSection";
-import BenefitSection from "./sections/BenefitSection";
-import TestimonialSection from "./sections/TestimonialSection";
-import FooterSection from "./sections/FooterSection";
-import { useEffect } from "react";
+import { useEffect, Suspense, lazy } from "react";
+
+const MessageSection = lazy(() => import("./sections/MessageSection"));
+const FlavorSection = lazy(() => import("./sections/FlavorSection"));
+const NutritionSection = lazy(() => import("./sections/NutritionSection"));
+const BenefitSection = lazy(() => import("./sections/BenefitSection"));
+const TestimonialSection = lazy(() => import("./sections/TestimonialSection"));
+const FooterSection = lazy(() => import("./sections/FooterSection"));
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 
@@ -60,12 +61,14 @@ const App = () => {
     <main style={{ overflowX: "hidden", scrollbarWidth: "none" }}>
       <NavBar />
       <HeroSection />
-      <MessageSection />
-      <FlavorSection />
-      <NutritionSection />
-      <BenefitSection />
-      <TestimonialSection />
-      <FooterSection />
+      <Suspense fallback={<div className="h-[200vh] bg-red-brown" />}>
+        <MessageSection />
+        <FlavorSection />
+        <NutritionSection />
+        <BenefitSection />
+        <TestimonialSection />
+        <FooterSection />
+      </Suspense>
     </main>
   );
 };

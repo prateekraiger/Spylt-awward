@@ -78,14 +78,18 @@ const HeroSection = () => {
         {isTablet ? (
           <>
             {isMobile && (
-              <img
-                src={`${import.meta.env.BASE_URL}images/hero-bg.png`}
-                className="absolute bottom-40 size-full object-cover"
-              />
+                <img
+                  src={`${import.meta.env.BASE_URL}images/hero-bg.png`}
+                  className="absolute bottom-40 size-full object-cover"
+                  fetchpriority="high"
+                  decoding="sync"
+                />
             )}
             <img
               src={`${import.meta.env.BASE_URL}images/hero-img.png`}
               className="absolute bottom-0 left-1/2 -translate-x-1/2 object-auto"
+              fetchpriority="high"
+              decoding="sync"
             />
           </>
         ) : (
